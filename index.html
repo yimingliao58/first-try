@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Umbrella Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f6f6f9;
+      --bg-dark: #121218;
+      --text: #1f1f24;
+      --text-dark: #f2f3f8;
+      --accent: #4571e8;
+      --accent-soft: rgba(69, 113, 232, 0.08);
+      --card-bg: rgba(255, 255, 255, 0.78);
+      --card-shadow: 0 18px 40px rgba(27, 35, 62, 0.12);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: radial-gradient(circle at top, #1f2345, #090b12);
+        color: var(--text-dark);
+      }
+      header, .card {
+        background-color: rgba(10, 12, 22, 0.85);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+      }
+      .feature-icon {
+        background: rgba(69, 113, 232, 0.12);
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: "Source Sans 3", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at top, rgba(69, 113, 232, 0.15), transparent 60%), var(--bg);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 6vw, 4rem);
+      background-color: var(--card-bg);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--card-shadow);
+      border-bottom: 1px solid rgba(69, 113, 232, 0.1);
+    }
+
+    header h1 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(2.8rem, 6vw, 4.4rem);
+      margin: 0 0 1rem;
+      color: var(--accent);
+    }
+
+    header p {
+      max-width: 720px;
+      margin: 0;
+      font-size: clamp(1.05rem, 3.4vw, 1.25rem);
+      color: rgba(31, 31, 36, 0.78);
+    }
+
+    main {
+      padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 7vw, 6rem) 6rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: clamp(1.75rem, 4vw, 2.5rem);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 1.25rem;
+      padding: 2.25rem;
+      box-shadow: var(--card-shadow);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(69, 113, 232, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(69, 113, 232, 0.15), transparent 45%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .card h2 {
+      font-family: "Playfair Display", Georgia, serif;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.75rem;
+      position: relative;
+    }
+
+    .card p,
+    .card ul {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0 0;
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .card ul li {
+      padding: 0.75rem 1rem;
+      border-radius: 0.85rem;
+      background: var(--accent-soft);
+      color: rgba(31, 31, 36, 0.82);
+      font-weight: 600;
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(69, 113, 232, 0.18);
+      display: grid;
+      place-content: center;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: rgba(31, 31, 36, 0.7);
+    }
+
+    a.cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.9rem 1.6rem;
+      margin-top: 1.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(69, 113, 232, 0.4);
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s ease, color 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    a.cta-button:hover {
+      background: var(--accent);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>The Umbrella Guide</h1>
+    <p>From stormy mornings to sun-soaked afternoons, umbrellas are the elegant guardians that keep us dry, cool, and confident. Explore their history, engineering, and modern uses in this curated guide.</p>
+    <a class="cta-button" href="#buying-guide">Explore the buying guide →</a>
+  </header>
+
+  <main>
+    <section class="card" aria-labelledby="history">
+      <div class="feature-icon" aria-hidden="true">☂️</div>
+      <h2 id="history">A Brief History</h2>
+      <p>Umbrellas trace their roots back over 4,000 years to ancient civilizations such as Egypt, Assyria, and China. Originally symbols of status and ceremonial shade, they evolved through innovations like oil-paper waterproofing and the 18th century introduction of steel ribs in Europe.</p>
+      <p>Today’s umbrellas combine tradition with technology—telescoping shafts, fiberglass ribs, and self-opening mechanics deliver reliable protection in a compact form.</p>
+    </section>
+
+    <section class="card" aria-labelledby="types">
+      <div class="feature-icon" aria-hidden="true">🌀</div>
+      <h2 id="types">Popular Styles</h2>
+      <ul>
+        <li><strong>Classic Stick:</strong> Timeless silhouette with a straight handle and generous canopy coverage.</li>
+        <li><strong>Compact Travel:</strong> Collapsible frames that fit in bags and backpacks, ideal for commuters.</li>
+        <li><strong>Windproof:</strong> Reinforced ribs, vented canopies, and flexible materials to resist inversion.</li>
+        <li><strong>Bubble Dome:</strong> Transparent PVC canopy that shields face and shoulders from wind-driven rain.</li>
+        <li><strong>Sun Umbrella (Parasol):</strong> UV-resistant fabrics and reflective coatings for sunny climates.</li>
+      </ul>
+    </section>
+
+    <section class="card" aria-labelledby="materials">
+      <div class="feature-icon" aria-hidden="true">🧵</div>
+      <h2 id="materials">Materials that Matter</h2>
+      <p>Modern canopies often use high-density polyester or Pongee fabric, prized for quick drying and mold resistance. Lightweight yet strong aluminum or fiberglass frames balance durability with portability, while ergonomic handles feature sustainably sourced wood, rubberized grips, or recycled plastics.</p>
+      <p>Look for water-repellent coatings, UV protection ratings, and corrosion-resistant hardware to extend the life of your umbrella.</p>
+    </section>
+
+    <section class="card" aria-labelledby="care">
+      <div class="feature-icon" aria-hidden="true">🧽</div>
+      <h2 id="care">Care &amp; Maintenance</h2>
+      <ul>
+        <li>Let your umbrella air-dry fully before folding to prevent mildew.</li>
+        <li>Rinse canopies with fresh water after exposure to salt spray or urban grime.</li>
+        <li>Tighten loose screws and lubricate joints with a silicone-based spray.</li>
+        <li>Store in a cool, dry place away from direct sunlight to protect fabric coatings.</li>
+      </ul>
+    </section>
+
+    <section class="card" aria-labelledby="buying-guide" id="buying-guide">
+      <div class="feature-icon" aria-hidden="true">🛍️</div>
+      <h2>Smart Buying Guide</h2>
+      <p>Match your umbrella to your lifestyle: commuters benefit from lightweight auto-open models; city walkers need wind-tested designs; travelers should seek compact frames with protective sleeves. Test handle comfort, canopy tension, and opening mechanisms in-store or review user feedback when shopping online.</p>
+      <p>Investing a little more often yields stronger ribs, better waterproofing, and warranties that protect your purchase.</p>
+    </section>
+
+    <section class="card" aria-labelledby="fun-facts">
+      <div class="feature-icon" aria-hidden="true">✨</div>
+      <h2 id="fun-facts">Unexpected Umbrella Facts</h2>
+      <ul>
+        <li>The word “umbrella” stems from the Latin <em>umbra</em>, meaning shade.</li>
+        <li>April 10 is celebrated as National Umbrella Day in the United States.</li>
+        <li>Engineers test windproof umbrellas in tunnels with gusts exceeding 60 mph (97 km/h).</li>
+        <li>In Japan, communal umbrella-sharing stands help cut down on single-use plastic coverings.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Crafted with care for weather watchers everywhere. Share your umbrella stories at <a href="mailto:hello@umbrellaguide.example">hello@umbrellaguide.example</a>.
+  </footer>
+</body>
+</html>
